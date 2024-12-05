@@ -43,19 +43,18 @@ Assurez-vous d'avoir installé Python sur votre machine. Si ce n'est pas le cas,
        export PYTHON_HOME=/chemin/vers/votre/python
        ```
      - Sourcez votre fichier de profil ou redémarrez votre terminal.
-2. Exécutez la commande suivante depuis votre terminal pour installer les dépendances nécessaires à l'aide du fichier requirements.txt :
+2. Exécutez la commande suivante depuis votre terminal pour installer les dépendances nécessaires à l'aide du fichier `requirements.txt` :
 
 ```markdown
 pip install -r requirements.txt
 ```
 ## Comment éxecuter  
 Pour utiliser cette application, suivez les étapes ci-dessous :  
--ouvrez le fichier `interface.xlmx` du dossier `interface` ;  
--cliquez sur le bouton ‘Formulaire' ;  
--cliquez sur l’un des boutons entre ‘Haut de corps’,’ Bas du corps’ et ‘Divers’ afin de sélectionner le type de vêtement dont vous souhaitez évaluer le coût environnemental ;  
--remplissez le formulaire ;  
--cliquez ensuite sur le bouton ‘Analyse’ ;  
--afin d’avoir une interprétation du score obtenu, cliquez ensuite sur résultats.
+- ouvrez le fichier `interface.xlmx` du dossier `interface` ;  
+- cliquez sur le bouton ‘Formulaire' ;  
+- cliquez sur l’un des boutons entre ‘Haut de corps’,’ Bas du corps’ et ‘Divers’ afin de sélectionner le type de vêtement dont vous souhaitez évaluer le coût environnemental ;  
+- remplissez le formulaire ;  
+- cliquez ensuite sur le bouton ‘Analyse’ afin d'avoir les résultats.
 
 
 ## Contributeurs
