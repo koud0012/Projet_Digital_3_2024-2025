@@ -10,16 +10,15 @@ L’objectif de notre application est d'aider toute personne qui le souhaite à 
 
 Le dépôt est structuré de la manière suivante : 
 
-- Le dossier `src`contient l’ensemble des scripts Python destinés à la science des données et à la manipulation des données. Ce répertoire est pour cela réparti en 3 sous-dossiers :
-    - Le sous-dossier `manip_data` qui inclut les fichiers Python réservés à la préparation et au nettoyage des données ainsi qu’aux fonctions ;
+- Le dossier `src`contient l’ensemble des scripts Python destinés à la science des données et à la manipulation des données. Ce répertoire est pour cela réparti en 2 sous-dossiers :  
     - Le sous-dossier `models` qui contient les scripts Python qui ont permis d’élaborer les modèles de prédiction et la sélection de modèles et des variables significatives ;
     - Le sous-dossier `visualisation` qui comprend les fichiers ayant servis à l’analyse de données.
-- Le dossier `data` comprend les fichiers Excel au format `.csv` de notre projet, à savoir la base de données originelle ainsi que la base de données nettoyée. 
+- Le dossier `data` comprend les fichiers Excel au format `.csv` de notre projet, à savoir la base de données originelle ainsi quie les dictionnaires des données. 
 - Le dossier `tests` contient l’ensemble des tests unitaires réalisés sur nos scripts Python afin de s’assurer du bon fonctionnement de ces derniers et améliorer la qualité du code. 
 - Le dossier `interface` contient un fichier Excel au format `.xlsm`, correspondant à l’interface utilisateur de l’application. 
-- Le dossier `docs`comprend le rapport final de notre projet. 
+- Le dossier `docs`comprend le rapport final de notre projet ainsi que les vidéos des différentes démo client effectuées au cours du projet. 
 - Le fichier `README.md ` décrit l’organisation et l’utilisation du projet.
-- Le fichier `requirements.txt`:Recense les paquets Python nécessaires pour exécuter l'application.
+- Le fichier `requirements.txt`:Recense les paquets Python nécessaires pour exécuter notre application.
 
 
 
