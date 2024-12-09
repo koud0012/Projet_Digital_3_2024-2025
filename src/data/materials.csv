@@ -1,0 +1,17 @@
+﻿id,name
+coton-rdpc,"Production de coton recyclé (recyclage mécanique) pré-filature, traitement de déchets textiles post-consommation, inventaire partiellement agrégé"
+coton-rdp,"Production de coton recyclé (recyclage mécanique) pré-filature, traitement de déchets de production textiles, inventaire partiellement agrégé"
+ei-chanvre,Chanvre
+ei-coton,Coton
+ei-coton-organic,Coton biologique
+elasthane,Elasthane (Lycra)
+ei-acrylique,Acrylique
+ei-jute-kenaf,Jute
+ei-laine-par-defaut,Laine par défaut
+ei-laine-nouvelle-filiere,Laine nouvelle filière
+ei-lin,Lin
+ei-pa,Nylon
+ei-pp,Polypropylène
+ei-pet,Polyester
+ei-pet-r,Polyester recyclé
+ei-viscose,Viscose
