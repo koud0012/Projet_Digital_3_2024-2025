@@ -10,16 +10,16 @@ def trigger(user_clothing_data : str):
     Args:
         sentence (str): A string conaining the users answer to the VBA userform.
     """
-    product_name, country_name, size, materials, material_percs = step_1(user_clothing_data)
-    product_id, mass_kg, country_id, material_ids = step_2(product_name, country_name,size, materials)
-    list_Xpred = step_3(product_id, mass_kg, country_id, material_ids)
-    prediction = step_4(list_Xpred, material_percs)
+    product_name, country_name, mass_kg, materials, material_percs = Processing_data(user_clothing_data)
+    product_id, country_id, material_ids = Translating_data(product_name, country_name, materials)
+    list_Xpred = Creating_prediction_df(product_id, mass_kg, country_id, material_ids)
+    prediction = Predicting_cost(list_Xpred, material_percs)
     print(prediction)
 
 
 
 #Processing data received from VBA entered into the form
-def step_1(user_clothing_data : str):
+def Processing_data(user_clothing_data : str):
     """
     Parses and processes the input data received from the VBA form.
     
@@ -39,18 +39,18 @@ def step_1(user_clothing_data : str):
     words_list = tl.extract_words(user_clothing_data)
     product_name = words_list[0]
     country_name = words_list[1]
-    size = words_list[2]
+    mass_kg = float(words_list[2])/100
     materials = []
     material_percs = []
     for i in range(3,(len(words_list)-1),2):
         materials.append(words_list[i])
         material_percs.append(float(words_list[i+1]) / 100)
 
-    return product_name, country_name, size, materials, material_percs
+    return product_name, country_name, mass_kg, materials, material_percs
 
 
 #Transform the data to translate it into terms of the explanatory vector
-def step_2(product_name : str, country_name : str , size : str, materials : list):
+def Translating_data(product_name : str, country_name : str , materials : list):
     """
     Maps the parsed data to their respective IDs or predictive variables 
     based on reference datasets.
@@ -71,7 +71,6 @@ def step_2(product_name : str, country_name : str , size : str, materials : list
     df_materials = tl.get_csv("materials.csv")
     df_products = tl.get_csv("products.csv")
     df_countries = tl.get_csv("countries.csv")
-    df_size = tl.get_csv("size_to_weight.csv")
 
     # Get the ID or code of the predictive variable based on its name in the questionnaire
     material_ids = []
@@ -81,13 +80,12 @@ def step_2(product_name : str, country_name : str , size : str, materials : list
         
     product_id = tl.get_id_from_name(df_products, 'name', product_name, 'id')
     country_id = tl.get_id_from_name(df_countries, 'name', country_name, 'code')
-    mass_kg = tl.get_weight_from_product(df_size, product_id, size)
 
-    return product_id, mass_kg, country_id,material_ids
+    return product_id, country_id,material_ids
 
 
 # Create the dataframes used for the prediction
-def step_3(product_id : str, mass_kg : float , country_making : str, materials : list):
+def Creating_prediction_df(product_id : str, mass_kg : float , country_making : str, materials : list):
     """
     Constructs a list of explanatory variable datasets for prediction.
 
@@ -112,7 +110,7 @@ def step_3(product_id : str, mass_kg : float , country_making : str, materials :
     return list_Xpred
 
 # Load the model to predict the environnemental cost of a cloth
-def step_4(list_Xpred : list, material_percs : list):
+def Predicting_cost(list_Xpred : list, material_percs : list):
     """
     Predicts the output based on the explanatory variables and material percentages.
 
