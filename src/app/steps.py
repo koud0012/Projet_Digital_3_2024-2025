@@ -39,7 +39,7 @@ def Processing_data(user_clothing_data : str):
     words_list = tl.extract_words(user_clothing_data)
     product_name = words_list[0]
     country_name = words_list[1]
-    mass_kg = float(words_list[2])/100
+    mass_kg = float(words_list[2])/1000
     materials = []
     material_percs = []
     for i in range(3,(len(words_list)-1),2):
