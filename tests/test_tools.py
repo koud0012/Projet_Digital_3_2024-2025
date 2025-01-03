@@ -1,7 +1,7 @@
 import pytest
 import joblib
 import pandas as pd
-from src.app.tools import get_csv, load_model, extract_words, get_id_from_name, get_weight_from_product
+from src.app.tools import get_category_code, get_csv, load_model, extract_words, get_id_from_name, get_weight_from_product
 
 
 @pytest.fixture(scope="module")
@@ -164,3 +164,4 @@ def test_get_weight_from_product():
     })
     result = get_weight_from_product(test_df, 'jean', 'M')
     assert result == 0.5  # 500g -> 0.5kg
+

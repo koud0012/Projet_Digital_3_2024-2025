@@ -1,0 +1,15 @@
+    impact_ecs  predicted_impact_ecs
+0  4787.247763           4781.338867
+1   807.173125            816.839722
+2  4971.043938           5001.879395
+3   359.808598            351.098541
+4  1247.957936           1250.416748
+Intervalle d'erreur moyen en pourcentage : [-1.7938548554407054% , 1.793864917391931%]
+Variance de l'erreur : 7491.2983800297025
+Écart-type de l'erreur : 86.55228697168955
+Performance du modèle Gradient Boosting sur les données d'entraînement :
+MAPE (pourcentage d'erreur) : 1.2945768151526036%
+RMSE : 86.55228697202999
+MAE : 36.73523588295752
+R² : 0.9997941020122721
+Nombre de lignes dans les données d'entraînement : 28160

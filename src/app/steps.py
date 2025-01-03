@@ -1,9 +1,9 @@
 import tools as tl
 import math
 import pandas as pd
+import mappings as mp
 
-
-def trigger(user_clothing_data : str):
+def run(user_clothing_data : str):
     """
     trigger the 4 steps to predict the environnement cost of a cloth.
 
@@ -39,7 +39,7 @@ def Processing_data(user_clothing_data : str):
     words_list = tl.extract_words(user_clothing_data)
     product_name = words_list[0]
     country_name = words_list[1]
-    mass_kg = float(words_list[2])/100
+    mass_kg = float(words_list[2])/1000
     materials = []
     material_percs = []
     for i in range(3,(len(words_list)-1),2):
@@ -124,7 +124,22 @@ def Predicting_cost(list_Xpred : list, material_percs : list):
              from all materials based on their percentages.
     """
     model = tl.load_model("xgb_model_30000.pkl")
-    prediction = 0
-    for i in range(0,len(material_percs)):
-        prediction = prediction + material_percs[i] * model.predict(list_Xpred[i])
-    return math.ceil(prediction[0])
+    malus_model = tl.load_model("xgb_model_1032_depth_5.pkl")
+    nb_materials = len(material_percs)
+    impact_ecs_predicted = 0
+    malus = 0
+    cost = 0
+
+    for index in range(0,len(material_percs)):
+        input_data_malus_model = {
+        'product': tl.get_category_code(list_Xpred[index]['product'].iloc[0], mp.product_mapping),
+        'material_id': tl.get_category_code(list_Xpred[index]['material_id'].iloc[0], mp.material_id_mapping),
+        'material_share': material_percs[index],
+        'nb_materiaux': nb_materials
+}   
+        input_df_malus_model = pd.DataFrame([input_data_malus_model])
+        malus += list_Xpred[index]['mass_kg'].iloc[0] * material_percs[index] * malus_model.predict(input_df_malus_model)
+        cost += material_percs[index] * model.predict(list_Xpred[index])
+
+    impact_ecs_predicted = malus + cost
+    return math.ceil(impact_ecs_predicted[0])
