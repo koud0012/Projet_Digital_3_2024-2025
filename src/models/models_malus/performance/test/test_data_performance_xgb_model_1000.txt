@@ -1,0 +1,15 @@
+     impact_ecs  predicted_impact_ecs
+0     84.832267            157.401855
+1    930.909318            903.571899
+2  16666.851261          16387.359375
+3   4064.073598           3990.452881
+4   6792.915394           7171.474121
+Average error interval in percentage: [-6.0689% , 6.2107%]
+Variance of the error: 88086.3434
+Standard deviation of the error: 296.7934
+Model performance on test data using XGBoosting model:
+MAPE (percentage error): 7.1863%
+RMSE: 296.8132
+MAE: 164.0666
+R²: 0.9977
+Number of rows in the test data: 7040
