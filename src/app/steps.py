@@ -124,7 +124,7 @@ def Predicting_cost(list_Xpred : list, material_percs : list):
              from all materials based on their percentages.
     """
     model = tl.load_model("xgb_model_30000.pkl")
-    malus_model = tl.load_model("xgb_model_1032_depth_5.pkl")
+    malus_model = tl.load_model_malus("xgb_model_1032_depth_5.pkl")
     nb_materials = len(material_percs)
     impact_ecs_predicted = 0
     malus = 0
