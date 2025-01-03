@@ -118,7 +118,7 @@ def get_category_code(category, mapping):
 
 def load_model_malus(model_name: str):
     """
-    Loads a pre-trained prediction model saved in a .pkl file.
+    Loads a pre-trained malus prediction model saved in a .pkl file.
 
     Args:
         model_name (str): The name of the model file to load (with the .pkl extension).
@@ -134,6 +134,6 @@ def load_model_malus(model_name: str):
         raise ValueError("The model name must have a .pkl extension.")
 
     current_dir = os.path.dirname(__file__)
-    model_path = os.path.join(current_dir, '..', 'models','pkl_models', model_name)
+    model_path = os.path.join(current_dir, '..', 'models_malus','pkl_models', model_name)
     
     return joblib.load(model_path)
