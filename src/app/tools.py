@@ -57,7 +57,7 @@ def load_model(model_name: str):
         raise ValueError("The model name must have a .pkl extension.")
 
     current_dir = os.path.dirname(__file__)
-    model_path = os.path.join(current_dir, '..', '..', 'models','pkl_models', model_name)
+    model_path = os.path.join(current_dir, '..', 'models','pkl_models', model_name)
     
     return joblib.load(model_path)
 
@@ -98,3 +98,19 @@ def get_weight_from_product(df: pd.DataFrame, product_type: str, size: str):
         if size in product_row.columns:
             return product_row[size].values[0] / 1000
     return None
+
+def get_category_code(category, mapping):
+    """
+    Retrieve the code for a given category using a provided mapping.
+
+    Parameters:
+    category (str): The category to look up.
+    mapping (dict): The mapping dictionary with categories and their codes.
+
+    Returns:
+    int: The code for the category, or -1 if not found.
+    """
+    for code, cat in mapping.items():
+        if cat == category:
+            return code
+    return -1  # Return -1 if category is not found
