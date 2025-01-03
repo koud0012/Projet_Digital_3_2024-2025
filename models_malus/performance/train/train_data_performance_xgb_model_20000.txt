@@ -1,0 +1,14 @@
+   malus_per_mass_kg  predicted_malus_per_mass_kg
+0         531.506476                   412.968109
+1         326.487976                   334.669464
+2           3.517095                    28.506863
+3          90.018760                   117.679077
+4          33.800138                    30.145294
+Average error interval in percentage: [-60.8443% , 60.8456%]
+Variance of the error: 4383.3072
+Standard deviation of the error: 66.2065
+Model performance on training data using XGBoosting model:
+RMSE: 66.2065
+MAE: 49.8424
+R²: 0.5236
+Number of rows in the training data: 29920

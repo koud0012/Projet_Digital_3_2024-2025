@@ -1,0 +1,9 @@
+Model performance on training data:
+RMSE: 87.259
+MAE: 68.2314
+R²: 0.166
+
+Model performance on test data:
+RMSE: 90.1377
+MAE: 70.8429
+R²: 0.1009
